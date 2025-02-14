@@ -74,10 +74,25 @@ address {
 }
 
 .container {
-  width: 100%;
-  max-width: 1158px;
-  margin: 0 auto;
-  padding-inline: 16px;
+  max-width: 320px;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media screen and (min-width: 1158px) {
+  .container {
+    max-width: 1158px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
 
 section {
@@ -421,7 +436,7 @@ section {
 }
 
 .portfolio-list-item {
-  width: 288px;
+  width: 100%;
   height: auto;
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16),
     0px 2px 1px rgba(46, 47, 66, 0.08);
@@ -1041,7 +1056,7 @@ section {
   }
 
   .portfolio-list-item {
-    width: 356px;
+    width: calc((100% - 24px) / 2);
   }
 
   .service-name {
