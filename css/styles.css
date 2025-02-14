@@ -75,7 +75,7 @@ address {
 
 .container {
   width: 100%;
-  max-width: 1160px;
+  max-width: 1158px;
   margin: 0 auto;
   padding-inline: 16px;
 }
@@ -105,7 +105,7 @@ section {
 
 /* header-------------------- */
 .header {
-  padding: 16px;
+  padding-block: 16px;
   border-bottom: 1px solid var(--cornflower);
   box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16),
     0px 1px 6px rgba(46, 47, 66, 0.08);
@@ -235,6 +235,8 @@ section {
 .hero-section {
   background-color: var(--navy-blue);
   padding: 72px 52px;
+  max-width: 1440px;
+  margin-inline: auto;
   background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
     url(../images/herobg/herobg-mob.jpg);
   background-repeat: no-repeat;
@@ -418,22 +420,21 @@ section {
   row-gap: 48px;
 }
 
-.portfoli-list-item {
-  width: 100%;
+.portfolio-list-item {
+  width: 288px;
   height: auto;
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  overflow-x: hidden;
-}
-
-.portfoli-list-item:hover {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16),
     0px 2px 1px rgba(46, 47, 66, 0.08);
+  overflow-x: hidden;
+  cursor: pointer;
 }
 
 .portfolio-img {
+  position: relative;
   width: 360px;
   height: 280px;
-  position: relative;
+  border: 1px solid var(--cornflower);
+  border-bottom: none;
   overflow: hidden;
 }
 
@@ -447,7 +448,7 @@ section {
   background-color: var(--iris);
   text-align: center;
   padding: 40px 32px;
-  transform: translateY(100%);
+  transform: translateY(101%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -647,8 +648,7 @@ section {
   position: relative;
   width: 100%;
   max-width: 288px;
-  height: 100%;
-  max-height: 623px;
+  min-height: 623px;
   padding: 72px 24px 24px;
   overflow-y: auto;
   background: var(--dairy);
@@ -855,6 +855,10 @@ section {
 .mobile-overlay {
   position: fixed;
   inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 20px;
   width: 100%;
   max-width: 320px;
   height: 100vh;
@@ -881,7 +885,6 @@ section {
   flex-direction: column;
   align-items: flex-start;
   gap: 40px;
-  margin-bottom: 24vh;
 }
 
 .mobile-overlay-list-item:first-child a {
@@ -901,12 +904,17 @@ section {
   color: var(--ocean);
 }
 
+.mobile-overlay-contact-adress {
+  display: flex;
+  flex-direction: column;
+  row-gap: 48px;
+}
+
 .mobile-overlay-contact-list {
   display: flex;
   flex-direction: column;
   align-items: start;
   gap: 24px;
-  margin-bottom: 7vh;
 }
 
 .mobile-overlay-contact-link {
@@ -932,7 +940,12 @@ section {
 
 @media (min-width: 768px) {
   .header {
-    padding: 24px 0;
+    padding: 0;
+  }
+
+  .nav-link {
+    display: block;
+    padding-block: 24px;
   }
 
   .header-menu-list {
@@ -949,7 +962,7 @@ section {
   }
 
   .home-page:after {
-    bottom: -45px;
+    bottom: -1px;
   }
 
   .contact-link {
@@ -1027,8 +1040,8 @@ section {
     overflow: hidden;
   }
 
-  .portfoli-list-item {
-    width: auto;
+  .portfolio-list-item {
+    width: 356px;
   }
 
   .service-name {
@@ -1040,9 +1053,9 @@ section {
   .footer {
     flex-direction: row;
     align-items: flex-start;
-    justify-content: center;
     flex-wrap: wrap;
     column-gap: 24px;
+    width: 584px;
   }
 
   .footer-text {
@@ -1086,12 +1099,6 @@ section {
 /* @media (min-width: 1158px) */
 
 @media (min-width: 1158px) {
-  /* header */
-
-  .header {
-    padding: 24px 0;
-  }
-
   .header-soc-list {
     flex-direction: row;
     gap: 40px;
@@ -1099,10 +1106,6 @@ section {
 
   .contact-link {
     font-size: 16px;
-  }
-
-  .home-page:after {
-    bottom: -27px;
   }
 
   /* hero-section */
@@ -1127,6 +1130,7 @@ section {
 
   .advantages-list {
     align-items: flex-start;
+    flex-wrap: nowrap;
   }
 
   .advatage-img {
@@ -1168,15 +1172,28 @@ section {
 
   .portfolio-img {
     max-width: 360px;
+    border: none;
   }
 
   .portfolio-list {
     row-gap: 48px;
   }
 
+  .portfolio-list-item {
+    width: calc((100% - 48px) / 3);
+    box-shadow: none;
+    transition: box-shadow 0.2s ease-in-out;
+  }
+
+  .portfolio-list-item:hover {
+    box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16),
+      0px 2px 1px rgba(46, 47, 66, 0.08);
+  }
+
   /* footer */
 
   .footer {
     justify-content: space-between;
+    width: 100%;
   }
 }
